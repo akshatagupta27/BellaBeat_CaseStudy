@@ -106,8 +106,8 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
       Avg(ModeratelyActiveDistance) as ModeratelyActiveDistance, 
       Avg(LightActiveDistance) as LightlyActiveDistance from dailyActivity group by Days
       
-  ![Active level per day (1)](https://user-images.githubusercontent.com/56431569/218684898-f1e5c21a-ec71-45c7-b3d8-d028a88f0515.png)
-  
+ ![Untitled](https://user-images.githubusercontent.com/56431569/218695660-df822012-9482-405b-b9cf-77f5f1ef0814.png)
+
       1. Most Active Day is Wednesday.
       2. Least Active day is Saturday.
       
