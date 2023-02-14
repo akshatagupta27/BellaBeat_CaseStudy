@@ -83,3 +83,10 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
          Avg(sD.TotalMinutesAsleep) as Sleep  from dailyActivity dA inner join 
          sleepDay sD on dA.Id=sD.Id Group BY dA.ActivityDate
 
+## Analyze & Share
+   --Steps taken to calories
+   select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
+   from dailyActivity Group By ActivityDate
+   
+   ![Steps Vs Calories](https://user-images.githubusercontent.com/56431569/218674736-14ead776-8565-4d2d-8507-af377ac5d8e8.png)
+   
