@@ -85,8 +85,63 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
 
 ## Analyze & Share
    --Steps taken to calories
-   select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
-   from dailyActivity Group By ActivityDate
+      select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
+      from dailyActivity Group By ActivityDate
    
-   ![Steps Vs Calories](https://user-images.githubusercontent.com/56431569/218674736-14ead776-8565-4d2d-8507-af377ac5d8e8.png)
+      ![Steps Vs Calories](https://user-images.githubusercontent.com/56431569/218674736-14ead776-8565-4d2d-8507-af377ac5d8e8.png)
    
+      This Shows how the number of steps taken affects the Calorie. As we can see in the chart, Calorie burns according to the Steps taken.
+      Average Calorie 2312.2 and Average Steps 7667.
+      
+      ![Steps, Distance Coorelation (1)](https://user-images.githubusercontent.com/56431569/218687683-7a338175-b6b6-4a7e-9d62-eaf6c9c98b36.png)
+
+      
+      Distance and Steps correlation with R-Squared to 0.970047 and P-Value<0.0001
+
+  
+  -- Average of Intensities according to Days
+
+      select Days, Avg(VeryActiveDistance) as VeryActiveDistance , 
+      Avg(ModeratelyActiveDistance) as ModeratelyActiveDistance, 
+      Avg(LightActiveDistance) as LightlyActiveDistance from dailyActivity group by Days
+      
+      ![Active level per day (1)](https://user-images.githubusercontent.com/56431569/218684898-f1e5c21a-ec71-45c7-b3d8-d028a88f0515.png)
+      1. Most Active Day is Wednesday.
+      2. Least Active day is Saturday.
+      
+  --Avg of Steps Vs Avg Sleep Minutes Vs Avg Calories
+
+      select dA.ActivityDate, Avg(dA.TotalSteps) as Steps, Avg(dA.Calories) as Calories,
+      Avg(sD.TotalMinutesAsleep) as Sleep  from dailyActivity dA inner join 
+      sleepDay sD on dA.Id=sD.Id Group BY dA.ActivityDate
+      
+      ![Sleep Minutes vs Steps Vs Calorie](https://user-images.githubusercontent.com/56431569/218686098-50cd189d-75a4-457f-bfbf-1dc75551234b.png)
+      
+      1. As shown in the first chart steps and calorie are directly proportionate. 
+      2. Here is the relation between steps, sleep and calorie.
+      
+      
+## Act
+
+After performig Ask, prepare, process, Analyze now we Act. Provide recommendations based on Analysis
+
+      1. Trends identified:
+         Not all users keelp track of the Sleep.
+         Users majorly perform Light Activities or are Sedentary.
+         Sleep plays an essential role in the Calorie burned.
+         
+      2. Recommendations:
+         Users should be notified every hour to walk so they are not stationary for a longer period of time.
+         Provide users with notification to have atleast 7-8hrs of sleep daily.
+         Could provide points on every avtivity they track on application and show how are they performing with respct to other users on application.
+         Features to be set to calculate minimum amount of calories to be burnt daily according to age, weight and height.
+         
+         
+         
+         
+         
+# Thank You
+      
+      
+      
+      
