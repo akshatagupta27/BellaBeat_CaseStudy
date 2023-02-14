@@ -68,10 +68,9 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
 
          -- Average of Intensities according to Days
 
-         select Days, Avg(VeryActiveMinutes) as VeryActiveMinutes , 
-         Avg(FairlyActiveMinutes) as FairlyActiveMinutes, 
-         Avg(LightlyActiveMinutes) as LightlyActiveMinutes, 
-         Avg(SedentaryMinutes) as SedentaryMinutes from dailyActivity group by Days
+         select Days, Avg(VeryActiveDistance) as VeryActiveDistance , 
+         Avg(ModeratelyActiveDistance) as ModeratelyActiveDistance, 
+         Avg(LightActiveDistance) as LightlyActiveDistance from dailyActivity group by Days
 
          -- Avg of Calories to Avg Distance
          select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
@@ -85,15 +84,17 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
 
 ## Analyze & Share
    --Steps taken to calories
+   
       select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
       from dailyActivity Group By ActivityDate
    
-      ![Steps Vs Calories](https://user-images.githubusercontent.com/56431569/218674736-14ead776-8565-4d2d-8507-af377ac5d8e8.png)
-   
+      
+   ![Steps Vs Calories](https://user-images.githubusercontent.com/56431569/218692447-fd85f386-4bf2-46a6-8792-7e7e75ce649c.png)
+
       This Shows how the number of steps taken affects the Calorie. As we can see in the chart, Calorie burns according to the Steps taken.
       Average Calorie 2312.2 and Average Steps 7667.
       
-      ![Steps, Distance Coorelation (1)](https://user-images.githubusercontent.com/56431569/218687683-7a338175-b6b6-4a7e-9d62-eaf6c9c98b36.png)
+   ![Steps, Distance Coorelation (1)](https://user-images.githubusercontent.com/56431569/218687683-7a338175-b6b6-4a7e-9d62-eaf6c9c98b36.png)
 
       
       Distance and Steps correlation with R-Squared to 0.970047 and P-Value<0.0001
@@ -105,7 +106,8 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
       Avg(ModeratelyActiveDistance) as ModeratelyActiveDistance, 
       Avg(LightActiveDistance) as LightlyActiveDistance from dailyActivity group by Days
       
-      ![Active level per day (1)](https://user-images.githubusercontent.com/56431569/218684898-f1e5c21a-ec71-45c7-b3d8-d028a88f0515.png)
+  ![Active level per day (1)](https://user-images.githubusercontent.com/56431569/218684898-f1e5c21a-ec71-45c7-b3d8-d028a88f0515.png)
+  
       1. Most Active Day is Wednesday.
       2. Least Active day is Saturday.
       
@@ -115,7 +117,7 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
       Avg(sD.TotalMinutesAsleep) as Sleep  from dailyActivity dA inner join 
       sleepDay sD on dA.Id=sD.Id Group BY dA.ActivityDate
       
-      ![Sleep Minutes vs Steps Vs Calorie](https://user-images.githubusercontent.com/56431569/218686098-50cd189d-75a4-457f-bfbf-1dc75551234b.png)
+   ![Sleep Minutes vs Steps Vs Calorie](https://user-images.githubusercontent.com/56431569/218686098-50cd189d-75a4-457f-bfbf-1dc75551234b.png)
       
       1. As shown in the first chart steps and calorie are directly proportionate. 
       2. Here is the relation between steps, sleep and calorie.
