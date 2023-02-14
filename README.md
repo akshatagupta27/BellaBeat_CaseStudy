@@ -9,4 +9,23 @@ Sršen knows that an analysis of Bellabeat’s available consumer data would rev
 ## Scenario
 You are a junior data analyst working on the marketing analyst team at Bellabeat, a high-tech manufacturer of health-focused products for women. Bellabeat is a successful small company, but they have the potential to become a larger player in the global smart device market. Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. You have been asked to focus on one of Bellabeat’s products and analyze smart device data to gain insight into how consumers are using their smart devices. The insights you discover will then help guide marketing strategy for the company. You will present your analysis to the Bellabeat executive team along with your high-level recommendations for Bellabeat’s marketing strategy.
 
-##
+## 1. Ask
+    ### 1.1 Business Task
+    Analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart devices.
+    Select one Bellabeat product to apply these insights.
+    
+    ### 1.2 Deliverables
+        1. A clear summary of the business task.
+        2. A description of all data sources used.
+        3. Documentation of any cleaning or manipulation of data.
+        4. A summary of analysis.
+        5. Supporting visualizations and key findings.
+        6. High-level content recommendations based on the analysis.
+        
+    
+    ### 1.3 Key Stakeholders
+        1. Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
+        2. Sando Mur: Mathematician, Bellabeat’s cofounder and key member of the Bellabeat executive team
+        3. Bellabeat marketing analytics team: A team of data analysts guiding Bellabeat's marketing strategy.
+        
+## 2. Prepare
