@@ -29,3 +29,57 @@ You are a junior data analyst working on the marketing analyst team at Bellabeat
         3. Bellabeat marketing analytics team: A team of data analysts guiding Bellabeat's marketing strategy.
         
 ## Prepare
+   1. Data is available on FitBit Fitness Tracker Data (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness           tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for                 physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’             habits. 
+   2. There are few Limitation. 
+      1.1 Data collected from year 2016. Users' daily activity, fitness and sleeping habits, diet and food consumption may have changed since then, hence data may not           be timely or relevant.
+      1.2 Data is not much reliable as there are only 30 respondants.
+      1.3 Data is third party so is not orignal and even less cited.
+      
+## Process
+      1. Tools being used are Microsoft SQL Server Management Studio for preparing and processing data. Tableau Public for Visualization.
+      2. Cleaning and Processing Data:
+         --Duplicate in DailyActivity
+         SELECT Id, ActivityDate, TotalSteps, Count(*)
+         FROM dailyActivity
+         GROUP BY id, ActivityDate, TotalSteps
+         HAVING Count(*) > 1;
+
+         --Date Formatting
+         Update dailyActivity
+         Set ActivityDate = Convert(date, ActivityDate, 21);
+
+         --Add Day of Week
+         Alter Table dailyActivity
+         ADD Days nvarchar(50)
+
+         --Add Date Name
+         Update dailyActivity
+         SET Days = DATENAME(DW, ActivityDate)
+
+         --Date Formatting of dailyIntensities
+
+         Update dailyIntensities
+         Set ActivityDate = Convert(date, ActivityDate, 21);
+
+         --Date Formatting of dailyCalories
+
+         Update dailyCalories
+         Set ActivityDate = Convert(date, ActivityDate, 21);
+
+         -- Average of Intensities according to Days
+
+         select Days, Avg(VeryActiveMinutes) as VeryActiveMinutes , 
+         Avg(FairlyActiveMinutes) as FairlyActiveMinutes, 
+         Avg(LightlyActiveMinutes) as LightlyActiveMinutes, 
+         Avg(SedentaryMinutes) as SedentaryMinutes from dailyActivity group by Days
+
+         -- Avg of Calories to Avg Distance
+         select ActivityDate, Avg(Calories) as Calories, AVG(TotalSteps) as Steps 
+         from dailyActivity Group By ActivityDate
+
+         --Avg of Steps Vs Avg Sleep Minutes Vs Avg Calories
+
+         select dA.ActivityDate, Avg(dA.TotalSteps) as Steps, Avg(dA.Calories) as Calories,
+         Avg(sD.TotalMinutesAsleep) as Sleep  from dailyActivity dA inner join 
+         sleepDay sD on dA.Id=sD.Id Group BY dA.ActivityDate
+
